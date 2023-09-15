@@ -141,10 +141,10 @@ spec:
         {{- with .Values.tlsCertSecretName }}
         - mountPath: /tmp/secrets/WEBSERVER_CUSTOM_CERT_FILE
           name: certificate
-          subPath: WEBSERVER_CUSTOM_CERT_FILE
+          subPath: {{ $.Values.tlsCertSecretCert | default "WEBSERVER_CUSTOM_CERT_FILE" }}
         - mountPath: /tmp/secrets/WEBSERVER_CUSTOM_KEY_FILE
           name: certificate
-          subPath: WEBSERVER_CUSTOM_KEY_FILE
+          subPath: {{ $.Values.tlsCertSecretKey | default "WEBSERVER_CUSTOM_KEY_FILE" }}
         {{- end }}
         {{- with .Values.certAuthCACertSecretName }}
         - mountPath: /tmp/secrets/AUTH_CUSTOM_CA
