@@ -25,6 +25,9 @@ metadata:
   labels:
     {{- include "bd.labels" . | nindent 4 }}
     component: webui
+  {{- with .Values.deploymentAnnotations }}
+  annotations: {{ . | toYaml | nindent 4}}
+  {{- end }}
   name: {{ .Release.Name }}-blackduck-ui
   namespace: {{ .Release.Namespace }}
 spec:

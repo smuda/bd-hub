@@ -52,6 +52,9 @@ metadata:
   labels:
     {{- include "bd.labels" . | nindent 4 }}
     component: uploadcache
+  {{- with .Values.deploymentAnnotations }}
+  annotations: {{ . | toYaml | nindent 4}}
+  {{- end }}
   name: {{ .Release.Name }}-blackduck-uploadcache
   namespace: {{ .Release.Namespace }}
 spec:

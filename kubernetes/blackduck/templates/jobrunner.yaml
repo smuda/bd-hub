@@ -26,6 +26,9 @@ metadata:
   labels:
     {{- include "bd.labels" . | nindent 4 }}
     component: jobrunner
+  {{- with .Values.deploymentAnnotations }}
+  annotations: {{ . | toYaml | nindent 4}}
+  {{- end }}
   name: {{ .Release.Name }}-blackduck-jobrunner
   namespace: {{ .Release.Namespace }}
 spec:

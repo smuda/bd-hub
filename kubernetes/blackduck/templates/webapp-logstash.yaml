@@ -69,6 +69,9 @@ metadata:
   labels:
     {{- include "bd.labels" . | nindent 4 }}
     component: webapp-logstash
+  {{- with .Values.deploymentAnnotations }}
+  annotations: {{ . | toYaml | nindent 4}}
+  {{- end }}
   name: {{ .Release.Name }}-blackduck-webapp-logstash
   namespace: {{ .Release.Namespace }}
 spec:

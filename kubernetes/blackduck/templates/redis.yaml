@@ -23,6 +23,9 @@ metadata:
   labels:
     {{- include "bd.labels" . | nindent 4 }}
     component: redis
+  {{- with .Values.deploymentAnnotations }}
+  annotations: {{ . | toYaml | nindent 4}}
+  {{- end }}
   name: {{ .Release.Name }}-blackduck-redis
   namespace: {{ .Release.Namespace }}
 spec:

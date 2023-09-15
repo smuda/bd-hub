@@ -10,6 +10,9 @@ isAzure: false
 
 imageTag: "2023.10.0"
 
+# Custom annotations for all deployments
+deploymentAnnotations: []
+
 # Docker registry to pull Black Duck images
 registry: docker.io/blackducksoftware
 
