@@ -102,6 +102,7 @@ spec:
         ports:
         - containerPort: 8443
           protocol: TCP
+        {{- include "bd.prometheus.common.port" . | indent 8 }}
         livenessProbe:
           exec:
             command:

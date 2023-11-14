@@ -123,6 +123,7 @@ spec:
         ports:
         - containerPort: 8443
           protocol: TCP
+        {{- include "bd.prometheus.common.port" . | indent 8 }}
         resources:
           {{- toYaml .Values.authentication.resources | nindent 12 }}
         {{- with .Values.authentication.securityContext }}
