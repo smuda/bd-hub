@@ -13,3 +13,12 @@ prometheus.io/scrape: "true"
   name: metrics
 {{- end }}
 {{- end }}
+
+{{- define "bd.prometheus.common.servicePort" }}
+{{- if .Values.metrics.enabled }}
+- name: metrics
+  port: 8081
+  protocol: TCP
+  targetPort: metrics
+{{- end }}
+{{- end }}
