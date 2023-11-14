@@ -5,3 +5,11 @@ prometheus.io/port: "8081"
 prometheus.io/scrape: "true"
 {{- end }}
 {{- end }}
+
+{{- define "bd.prometheus.common.port" }}
+{{- if .Values.metrics.enabled }}
+- containerPort: 8081
+  protocol: TCP
+  name: metrics
+{{- end }}
+{{- end }}
